@@ -3,11 +3,11 @@ class Employee {
     #salary;
     #isHired;
 
-    constructor(name, position, salary, isHired){
+    constructor(name, position, salary){
         this.name = name;
         this.position = position;
         this.#salary = salary;
-        this.#isHired = isHired
+        this.#isHired = true;
     }
 
     getSalary(){
@@ -15,22 +15,18 @@ class Employee {
     }
 
     setSalary(amount){
-        this.#salary += amount
+        return this.#salary = amount
     }
 
     getStatus(){
-        if(this.#isHired === yes){
-            return true
-        }else{
-            return false 
-        }
+        return this.#isHired;
     }
 
     setStatus(command){
         if(command === "hire"){
-            return true
+            this.#isHired = true;
         }else if(command === "fire"){
-            return false 
+            this.#isHired = false;
         }
     }
 

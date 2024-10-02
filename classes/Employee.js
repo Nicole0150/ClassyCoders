@@ -2,12 +2,28 @@ class Employee {
 
     #salary;
     #isHired;
+    static #allEmployees =[]
+    
 
     constructor(name, position, salary){
         this.name = name;
         this.position = position;
         this.#salary = salary;
         this.#isHired = true;
+        Employee.#allEmployees.push(this);
+    }
+    static getEmployees(){
+        return this.#allEmployees;
+    }
+
+    static getTotalPayroll(){
+        let total = 0;
+        for (let i=0; i<this.#allEmployees.length;i++){
+            let employee = this.#allEmployees[i];
+            total += employee.#salary;
+
+        }
+        return total;
     }
 
     getSalary(){
